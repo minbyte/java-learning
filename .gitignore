@@ -1,0 +1,14 @@
+*.class
+.classpath
+.project
+.settings/
+.buildpath
+.DS_Store
+logs
+target/
+work/
+node_modules/
+node/
+.idea/
+*.iml
+_dev.properties
