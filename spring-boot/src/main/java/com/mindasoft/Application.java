@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication
+//@ImportResource({"classpath:xxx.xml",""})
 public class Application {
 
 	@RequestMapping("/test")
