@@ -3,7 +3,7 @@ package com.mindasoft._01_data_type;
 import org.junit.Test;
 
 /**
- * Byte Short Integer Long Float Double Character Boolean String
+ * Byte Short Integer Long Float Double Character Boolean
  * BigInteger BigDecimal
  * equals()  和 ==
  */

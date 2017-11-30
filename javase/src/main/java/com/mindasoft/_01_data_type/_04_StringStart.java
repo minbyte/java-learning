@@ -21,4 +21,11 @@ public class _04_StringStart {
         System.out.println(s3 == s4 );  // false
 
     }
+
+    @Test
+    public void stringBuffer02(){
+//        StringBuilder是非线程安全，
+//        StringBuffer是线程安全的，每个方法都有synchronized
+        StringBuilder builder = new StringBuilder();
+    }
 }
