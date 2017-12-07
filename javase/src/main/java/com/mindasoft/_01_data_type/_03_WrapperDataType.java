@@ -10,7 +10,9 @@ import org.junit.Test;
 public class _03_WrapperDataType {
 
 	/**
-	 * byte short integer long 都一样
+	 * Byte Short Integer Long 都一样
+	 * 这些包装类都存在一个缓存数组，-128 到 127
+	 *
 	 */
 	@Test
 	public void integer01(){
