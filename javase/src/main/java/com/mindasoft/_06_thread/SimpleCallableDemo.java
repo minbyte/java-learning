@@ -7,11 +7,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
-public class CallableDemo implements Callable<String> {
+public class SimpleCallableDemo implements Callable<String> {
 
 	private String name; 
 	
-	public CallableDemo(String name) {
+	public SimpleCallableDemo(String name) {
 		this.name = name;
 	}
 
@@ -28,12 +28,12 @@ public class CallableDemo implements Callable<String> {
 	
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		ExecutorService pool =  Executors.newFixedThreadPool(3);
-		Future<String> f1 = pool.submit(new CallableDemo("线程1"));
+		Future<String> f1 = pool.submit(new SimpleCallableDemo("线程1"));
 		System.out.println(f1.get());//get会等待线程执行完毕  阻塞性方法
 		
-		Future<String> f2 = pool.submit(new CallableDemo("线程2"));
-		Future<String> f3 = pool.submit(new CallableDemo("线程3"));
-		CallableDemo.shutdownAndAwaitTermination(pool);
+		Future<String> f2 = pool.submit(new SimpleCallableDemo("线程2"));
+		Future<String> f3 = pool.submit(new SimpleCallableDemo("线程3"));
+		SimpleCallableDemo.shutdownAndAwaitTermination(pool);
 		System.out.println(f2.get());
 		System.out.println(f3.get());
 	}
