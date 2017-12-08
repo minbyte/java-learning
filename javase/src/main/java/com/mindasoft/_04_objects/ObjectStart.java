@@ -2,7 +2,7 @@ package com.mindasoft._04_objects;
 
 /**
  *
- *   Object()
+ *  Object()
  *  默认构造方法
  *  clone()
  *  创建并返回此对象的一个副本。
@@ -14,12 +14,14 @@ package com.mindasoft._04_objects;
  *  返回一个对象的运行时类。
  *  hashCode()
  *  返回该对象的哈希码值。
+ *  toString()
+ *  返回该对象的字符串表示。
+ *
+ *  以下 5 个方法用于线程间的通讯
  *  notify()
  *  唤醒在此对象监视器上等待的单个线程。
  *  notifyAll()
  *  唤醒在此对象监视器上等待的所有线程。
- *  toString()
- *  返回该对象的字符串表示。
  *  wait()
  *  导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法。
  *  wait(long timeout)

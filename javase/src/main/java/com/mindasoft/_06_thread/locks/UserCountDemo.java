@@ -1,11 +1,11 @@
-package com.mindasoft._06_thread;
+package com.mindasoft._06_thread.locks;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class LockDemo {
+public class UserCountDemo {
 	public static void main(String[] args) {
 		// 创建并发访问的账户
 		MyCount myCount = new MyCount("95599200901215522", 10000);
