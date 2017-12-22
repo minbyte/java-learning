@@ -1047,9 +1047,9 @@ public class HashMapStart {
 			}
 		}
 
-		// java.io.Serializable的写入函数
+		// java._01_io.Serializable的写入函数
 		// 将HashMap的“总的容量，实际容量，所有的Entry”都写入到输出流中
-		private void writeObject(java.io.ObjectOutputStream s)
+		private void writeObject(java._01_io.ObjectOutputStream s)
 				throws IOException
 		{
 			Iterator<Map.Entry<K,V>> i =
@@ -1077,9 +1077,9 @@ public class HashMapStart {
 
 		private static final long serialVersionUID = 362498820763181265L;
 
-		// java.io.Serializable的读取函数：根据写入方式读出
+		// java._01_io.Serializable的读取函数：根据写入方式读出
 		// 将HashMap的“总的容量，实际容量，所有的Entry”依次读出
-		private void readObject(java.io.ObjectInputStream s)
+		private void readObject(java._01_io.ObjectInputStream s)
 				throws IOException, ClassNotFoundException
 		{
 			// Read in the threshold, loadfactor, and any hidden stuff

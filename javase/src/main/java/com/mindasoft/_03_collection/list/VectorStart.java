@@ -33,7 +33,7 @@ public class VectorStart {
      package java.util;
 
      public class Vector<E>    extends AbstractList<E>
-     implements List<E>, RandomAccess, Cloneable, java.io.Serializable
+     implements List<E>, RandomAccess, Cloneable, java._01_io.Serializable
      {
          // 保存Vector中数据的数组
          protected Object[] elementData;
@@ -493,9 +493,9 @@ public class VectorStart {
                 elementData[--elementCount] = null;
         }
 
-        // java.io.Serializable的写入函数
-        private synchronized void writeObject(java.io.ObjectOutputStream s)
-                throws java.io.IOException {
+        // java._01_io.Serializable的写入函数
+        private synchronized void writeObject(java._01_io.ObjectOutputStream s)
+                throws java._01_io.IOException {
             s.defaultWriteObject();
         }
     }

@@ -93,7 +93,7 @@ public class TreeMapStart {
                 try {
                     buildFromSorted(mapSize, map.entrySet().iterator(),
                             null, null);
-                } catch (java.io.IOException cannotHappen) {
+                } catch (java._01_io.IOException cannotHappen) {
                 } catch (ClassNotFoundException cannotHappen) {
                 }
                 return;
@@ -116,7 +116,7 @@ public class TreeMapStart {
         comparator = m.comparator();
         try {
             buildFromSorted(m.size(), m.entrySet().iterator(), null, null);
-        } catch (java.io.IOException cannotHappen) {
+        } catch (java._01_io.IOException cannotHappen) {
         } catch (ClassNotFoundException cannotHappen) {
         }
     }

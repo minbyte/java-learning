@@ -62,7 +62,7 @@ public class HashtableStart {
     /**
     public class Hashtable<K,V>
             extends Dictionary<K,V>
-            implements Map<K,V>, Cloneable, java.io.Serializable {
+            implements Map<K,V>, Cloneable, java._01_io.Serializable {
 
         // 保存key-value的数组。
         // Hashtable同样采用单链表解决冲突，每一个Entry本质上是一个单向链表
@@ -552,9 +552,9 @@ public class HashtableStart {
             return h;
         }
 
-        // java.io.Serializable的写入函数
+        // java._01_io.Serializable的写入函数
         // 将Hashtable的“总的容量，实际容量，所有的Entry”都写入到输出流中
-        private synchronized void writeObject(java.io.ObjectOutputStream s)
+        private synchronized void writeObject(java._01_io.ObjectOutputStream s)
                 throws IOException
         {
             // Write out the length, threshold, loadfactor
@@ -574,9 +574,9 @@ public class HashtableStart {
             }
         }
 
-        // java.io.Serializable的读取函数：根据写入方式读出
+        // java._01_io.Serializable的读取函数：根据写入方式读出
         // 将Hashtable的“总的容量，实际容量，所有的Entry”依次读出
-        private void readObject(java.io.ObjectInputStream s)
+        private void readObject(java._01_io.ObjectInputStream s)
                 throws IOException, ClassNotFoundException
         {
             // Read in the length, threshold, and loadfactor
@@ -613,7 +613,7 @@ public class HashtableStart {
                 throws StreamCorruptedException
         {
             if (value == null) {
-                throw new java.io.StreamCorruptedException();
+                throw new java._01_io.StreamCorruptedException();
             }
             // Makes sure the key is not already in the hashtable.
             // This should not happen in deserialized version.
@@ -621,7 +621,7 @@ public class HashtableStart {
             int index = (hash & 0x7FFFFFFF) % tab.length;
             for (Entry<K,V> e = tab[index] ; e != null ; e = e.next) {
                 if ((e.hash == hash) && e.key.equals(key)) {
-                    throw new java.io.StreamCorruptedException();
+                    throw new java._01_io.StreamCorruptedException();
                 }
             }
             // Creates the new entry.

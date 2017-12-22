@@ -49,7 +49,7 @@ public class LinkedListStart {
 
 	/**  以下是源码分析
 	public class LinkedList<E> extends AbstractSequentialList<E>
-    implements List<E>, Deque<E>, Cloneable, java.io.Serializable
+    implements List<E>, Deque<E>, Cloneable, java._01_io.Serializable
 	{
 		// 链表的表头，表头不包含任何数据。Entry是个链表类数据结构。
 		private transient Entry<E> header = new Entry<E>(null, null, null);
@@ -649,10 +649,10 @@ public class LinkedListStart {
 			return clone;
 		}
 
-		// java.io.Serializable的写入函数
+		// java._01_io.Serializable的写入函数
 		// 将LinkedList的“容量，所有的元素值”都写入到输出流中
-		private void writeObject(java.io.ObjectOutputStream s)
-				throws java.io.IOException {
+		private void writeObject(java._01_io.ObjectOutputStream s)
+				throws java._01_io.IOException {
 			// Write out any hidden serialization magic
 			s.defaultWriteObject();
 
@@ -664,10 +664,10 @@ public class LinkedListStart {
 				s.writeObject(e.element);
 		}
 
-		// java.io.Serializable的读取函数：根据写入方式反向读出
+		// java._01_io.Serializable的读取函数：根据写入方式反向读出
 		// 先将LinkedList的“容量”读出，然后将“所有的元素值”读出
-		private void readObject(java.io.ObjectInputStream s)
-				throws java.io.IOException, ClassNotFoundException {
+		private void readObject(java._01_io.ObjectInputStream s)
+				throws java._01_io.IOException, ClassNotFoundException {
 			// Read in any hidden serialization magic
 			s.defaultReadObject();
 

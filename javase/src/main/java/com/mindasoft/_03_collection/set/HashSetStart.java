@@ -21,7 +21,7 @@ public class HashSetStart {
      * 源码分析
     public class HashSet<E>
             extends AbstractSet<E>
-            implements Set<E>, Cloneable, java.io.Serializable
+            implements Set<E>, Cloneable, java._01_io.Serializable
     {
         static final long serialVersionUID = -5024744406713321676L;
 
@@ -105,8 +105,8 @@ public class HashSetStart {
             }
         }
 
-        private void writeObject(java.io.ObjectOutputStream s)
-                throws java.io.IOException {
+        private void writeObject(java._01_io.ObjectOutputStream s)
+                throws java._01_io.IOException {
             // Write out any hidden serialization magic
             s.defaultWriteObject();
 

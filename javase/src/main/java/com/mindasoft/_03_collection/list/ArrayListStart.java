@@ -49,7 +49,7 @@ public class ArrayListStart {
 	/** 以下是源码分析
 
 	 public class ArrayList<E> extends AbstractList<E>
-	 implements List<E>, RandomAccess, Cloneable, java.io.Serializable
+	 implements List<E>, RandomAccess, Cloneable, java._01_io.Serializable
 	 {
 		 // 序列版本号
 		 private static final long serialVersionUID = 8683452581122892189L;
@@ -375,10 +375,10 @@ public class ArrayListStart {
 		 }
 
 
-		 // java.io.Serializable的写入函数
+		 // java._01_io.Serializable的写入函数
 		 // 将ArrayList的“容量，所有的元素值”都写入到输出流中
-		 private void writeObject(java.io.ObjectOutputStream s)
-		 throws java.io.IOException{
+		 private void writeObject(java._01_io.ObjectOutputStream s)
+		 throws java._01_io.IOException{
 		 // Write out element count, and any hidden stuff
 		 int expectedModCount = modCount;
 		 s.defaultWriteObject();
@@ -397,10 +397,10 @@ public class ArrayListStart {
 		 }
 
 
-		 // java.io.Serializable的读取函数：根据写入方式读出
+		 // java._01_io.Serializable的读取函数：根据写入方式读出
 		 // 先将ArrayList的“容量”读出，然后将“所有的元素值”读出
-		 private void readObject(java.io.ObjectInputStream s)
-		 throws java.io.IOException, ClassNotFoundException {
+		 private void readObject(java._01_io.ObjectInputStream s)
+		 throws java._01_io.IOException, ClassNotFoundException {
 		 // Read in size, and any hidden stuff
 		 s.defaultReadObject();
 
