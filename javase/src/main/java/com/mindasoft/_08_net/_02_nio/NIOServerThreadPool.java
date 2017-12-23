@@ -12,14 +12,14 @@ import java.util.List;
  * User: huangmin
  * DateTime: 2017/12/18 13:42
  */
-public class SelectSocketsThreadPool extends SelectSockets
+public class NIOServerThreadPool extends NIOServer
 {
     private static final int MAX_THREADS = 5;
     private ThreadPool pool = new ThreadPool(MAX_THREADS);
     // -------------------------------------------------------------
     public static void main(String[] argv) throws Exception
     {
-        new SelectSocketsThreadPool().go(argv);
+        new NIOServerThreadPool().go(argv);
     }
     // -------------------------------------------------------------
     /**

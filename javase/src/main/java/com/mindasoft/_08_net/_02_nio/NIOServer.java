@@ -10,12 +10,12 @@ import java.nio.channels.*;
  * User: huangmin
  * DateTime: 2017/12/18 13:40
  */
-public class SelectSockets {
+public class NIOServer {
     public static int PORT_NUMBER = 1234;
 
     public static void main(String[] argv) throws Exception
     {
-        new SelectSockets().go(argv);
+        new NIOServer().go(argv);
     }
     public void go(String[] argv) throws Exception
     {
@@ -25,37 +25,53 @@ public class SelectSockets {
             port = Integer.parseInt(argv[0]);
         }
         System.out.println("Listening on port " + port);
-        ServerSocketChannel serverChannel = ServerSocketChannel.open();// 打开一个未绑定的serversocketchannel
+        // 1、打开一个未绑定的serversocketchannel
+        ServerSocketChannel serverChannel = ServerSocketChannel.open();
+
+        // 2、设置server channel将会监听的端口
         ServerSocket serverSocket = serverChannel.socket();// 得到一个ServerSocket去和它绑定
-        Selector selector = Selector.open();// 创建一个Selector供下面使用
         serverSocket.bind(new InetSocketAddress(port));//设置server channel将会监听的端口
         serverChannel.configureBlocking(false);//设置非阻塞模式
-        serverChannel.register(selector, SelectionKey.OP_ACCEPT);//将ServerSocketChannel注册到Selector
+
+        // 3、创建一个多路复用器Selector供下面使用
+        Selector selector = Selector.open();
+
+        // 4、将ServerSocketChannel注册到Selector
+        serverChannel.register(selector, SelectionKey.OP_ACCEPT);
+
+        // 5、 多路复用器 轮询 准备就绪的Key
         while (true)
         {
             // This may block for a long time. Upon returning, the
             // selected set contains keys of the ready channels.
+            // 多路复用器 轮询 准备就绪的Key个数
             int n = selector.select();
             if (n == 0)
             {
                 continue; // nothing to do
             }
+
+            // 当有准备就绪的Channel时，遍历取出
             java.util.Iterator<SelectionKey> it = selector.selectedKeys().iterator();// Get an iterator over the set of selected keys
             //在被选择的set中遍历全部的key
             while (it.hasNext())
             {
                 SelectionKey key = (SelectionKey) it.next();
-                // 判断是否是一个连接到来
+                // 6、判断是否是一个连接到来
                 if (key.isAcceptable())
                 {
                     ServerSocketChannel server =(ServerSocketChannel) key.channel();
                     SocketChannel channel = server.accept();
+                    // 7、将channel通道设置为非阻塞 并注册到selector
                     registerChannel(selector, channel,SelectionKey.OP_READ);//注册读事件
+
+                    // 8、发送数据
                     sayHello(channel);//对连接进行处理
                 }
                 //判断这个channel上是否有数据要读
                 if (key.isReadable())
                 {
+                    // 8、读取数据
                     readDataFromSocket(key);
                 }
                 //从selected set中移除这个key，因为它已经被处理过了
@@ -140,7 +156,7 @@ public class SelectSockets {
     private void sayHello(SocketChannel channel) throws Exception
     {
         buffer.clear();
-        buffer.put("Hi there!\r\n".getBytes());
+        buffer.put("Hi there Server!\r\n".getBytes());
         buffer.flip();
         channel.write(buffer);
     }
