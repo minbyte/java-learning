@@ -1,6 +1,8 @@
 package com.mindasoft._08_net._04_netty;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
@@ -16,14 +18,15 @@ public class NettyServer {
     public static int PORT_NUMBER = 1234;
 
     public static void main(String[] args) throws Exception {
-        int port = PORT_NUMBER;
-        if (args.length > 0)
-        { // 覆盖默认的监听端口
-            port = Integer.parseInt(args[0]);
-        }
-        System.out.println("Listening on port " + port);
-
-        new NettyServer().bind(port);
+        System.out.println(System.getProperty("line.separator").length());
+//        int port = PORT_NUMBER;
+//        if (args.length > 0)
+//        { // 覆盖默认的监听端口
+//            port = Integer.parseInt(args[0]);
+//        }
+//        System.out.println("Listening on port " + port);
+//
+//        new NettyServer().bind(port);
     }
 
     public void bind(int port) throws Exception{
@@ -63,6 +66,18 @@ public class NettyServer {
 
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+            // 强制转换成ByteBuf
+            ByteBuf buf = (ByteBuf)msg;
+            byte[] req = new byte[buf.readableBytes()];
+            buf.readBytes(req);
+
+            String body = new String(req,"UTF-8");
+            System.out.println("#########" + body);
+
+
+            ByteBuf resp = Unpooled.copiedBuffer("HelloClient".getBytes());
+            ctx.writeAndFlush(resp);
+
             super.channelRead(ctx, msg);
         }
 
