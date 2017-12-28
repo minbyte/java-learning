@@ -1,5 +1,9 @@
 package com.mindasoft._06_thread.threadPool;
 
+import org.junit.Test;
+
+import java.util.concurrent.Executors;
+
 /**
  * Executors是一个用于创建各种线程池特性的工具类。通常情况下，您使用这个工具类创建的线程池就可以涵盖90%以上的业务场景了。
  * 1、创建一个固定大小的ThreadPoolExecutor线程池：
@@ -30,6 +34,11 @@ package com.mindasoft._06_thread.threadPool;
  * DateTime: 2017/12/8 13:47
  */
 public class ExecutorsUtils {
+
+	@Test
+	public void cachedThreadPool(){
+		Executors.newCachedThreadPool();
+	}
 
 
 }
