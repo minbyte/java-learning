@@ -4,7 +4,7 @@ import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
-import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.channel.socket.nio.NioSocketChannel;
 
 /**
  * Company：MGTV
@@ -31,9 +31,8 @@ public class NettyClient5X {
         try {
             Bootstrap bootstrap = new Bootstrap();
             bootstrap.group(clientGroup)
-                    .channel(NioServerSocketChannel.class)
-                    .handler(new MyChannelInitializer())
-                    .option(ChannelOption.SO_BACKLOG, 1024);
+                    .channel(NioSocketChannel.class)
+                    .handler(new MyChannelInitializer());
 
             // 绑定端口，同步等待成功
             ChannelFuture future = bootstrap.connect(HOST, port).sync();

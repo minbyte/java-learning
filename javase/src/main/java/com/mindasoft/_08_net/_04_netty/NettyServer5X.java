@@ -36,7 +36,7 @@ public class NettyServer5X {
             ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
-                    .option(ChannelOption.SO_BACKLOG, 1024)
+                    .option(ChannelOption.SO_BACKLOG, 1024) // 指定队列大小
                     .childHandler(new ChildChannelHandler());
 
             // 绑定端口，同步等待成功
