@@ -10,7 +10,8 @@ package com.mindasoft._03_collection.list;
  *
  * 关于LinkedList的源码，给出几点比较重要的总结：
     1、从源码中很明显可以看出，LinkedList的实现是基于<b>双向循环链表</b>的，且头结点中不存放数据，如图LinkedList.jpg;
-	2、注意两个不同的构造方法。无参构造方法直接建立一个仅包含head节点的空链表，包含Collection的构造方法，先调用无参构造方法建立一个空链表，而后将Collection中的数据加入到链表的尾部后面。
+	2、注意两个不同的构造方法。无参构造方法直接建立一个仅包含head节点的空链表，包含Collection的构造方法，先调用无参构造方法建立一个空链表，
+        而后将Collection中的数据加入到链表的尾部后面。
 	3、在查找和删除某元素时，源码中都划分为该元素为null和不为null两种情况来处理，LinkedList中允许元素为null。
 	4、LinkedList是基于链表实现的，因此不存在容量不足的问题，所以这里没有扩容的方法。
 	5、注意源码中的Entry<E> entry(int index)方法。该方法返回双向链表中指定位置处的节点，而链表中是没有下标索引的，
