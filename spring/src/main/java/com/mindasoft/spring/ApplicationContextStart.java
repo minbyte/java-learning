@@ -13,5 +13,8 @@ public class ApplicationContextStart {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("");
+        System.out.println("一共加载了bean个数:" + context.getBeanDefinitionCount());
+
+        context.getBean("personServier");
     }
 }
