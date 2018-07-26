@@ -1,4 +1,4 @@
-package com.mindasoft.spring;
+package com.mindasoft.spring._01_bean_factory;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
