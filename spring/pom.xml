@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>../CQRS</module>
+        <module>../netty</module>
     </modules>
 
     <name>spring</name>
