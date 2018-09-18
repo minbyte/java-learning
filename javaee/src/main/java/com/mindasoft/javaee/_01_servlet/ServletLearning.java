@@ -1,4 +1,4 @@
-package com.mindasoft._00_javaee;
+package com.mindasoft.javaee._01_servlet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,20 +7,23 @@ import javax.servlet.*;
 import java.io.IOException;
 
 /**
- * Created by huangmin on 2018/1/3 21:08.
+ * Created by min on 2018/1/3 21:08.
  */
-public class ServletStart implements Servlet {
+public class ServletLearning implements Servlet {
 
-	private static final Logger logger = LoggerFactory.getLogger(ServletStart.class);
+	private static final Logger logger = LoggerFactory.getLogger(ServletLearning.class);
 
+	@Override
 	public void init(ServletConfig servletConfig) throws ServletException {
 		logger.info("###init");
 	}
 
+    @Override
 	public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
 		logger.info("###service");
 	}
 
+    @Override
 	public void destroy() {
 		logger.info("###destroy");
 	}
@@ -42,12 +45,14 @@ public class ServletStart implements Servlet {
 	 *
 	 * @return
 	 */
+    @Override
 	public ServletConfig getServletConfig() {
 
 		logger.info("###ServletConfig");
 		return null;
 	}
 
+    @Override
 	public String getServletInfo() {
 		logger.info("###getServletInfo");
 		return null;

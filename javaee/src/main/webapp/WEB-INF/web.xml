@@ -7,7 +7,7 @@
   
   <servlet>
     <servlet-name>servletStart</servlet-name>
-    <servlet-class>com.mindasoft._00_javaee.ServletStart</servlet-class>
+    <servlet-class>com.mindasoft.javaee._01_servlet.ServletLearning</servlet-class>
   </servlet>
   
   <servlet-mapping>
