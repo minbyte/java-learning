@@ -3,6 +3,7 @@ package com.mindasoft._01_data_type;
 import org.junit.Test;
 
 /**
+ * 原生数据类型
  * 位："位(bit)"是电子计算机中最小的数据单位。每一位的状态只能是0或1
  * 字节：8个二进制位构成1个"字节(Byte)"，它是存储空间的基本计量单位。
  * KB: 计算机存储空间常用单位。1KB也就是1024个字节
