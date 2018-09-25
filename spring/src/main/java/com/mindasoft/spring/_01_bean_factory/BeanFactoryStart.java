@@ -7,7 +7,8 @@ import org.springframework.core.io.Resource;
 
 /**
  * BeanFactory {@link org.springframework.beans.factory.BeanFactory}
- *   是spring中最基本、最重要的一个接口，它定义个IOC内容的最基本功能.IoC容器的初始化包括BeanDefinition的Resource定位、载入和注册这三个基本的过程
+ *   是spring中最基本、最重要的一个接口，它定义个IOC内容的最基本功能.
+ *   IoC容器的初始化包括BeanDefinition的Resource定位、载入和注册这三个基本的过程
  *
  * @author: huangmin
  * @email: huangmin@mgtv.com
