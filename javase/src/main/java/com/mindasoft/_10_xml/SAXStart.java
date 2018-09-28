@@ -32,6 +32,7 @@ public class SAXStart extends DefaultHandler {
 		System.out.println("运行时间：" + (System.currentTimeMillis() - lasting) + " 毫秒");
 	}
 
+	@Override
 	public void characters(char ch[], int start, int length) throws SAXException {
 		String tag = (String) tags.peek();
 		if (tag.equals("NO")) {
@@ -42,6 +43,7 @@ public class SAXStart extends DefaultHandler {
 		}
 	}
 
+	@Override
 	public void startElement(
 		String uri,
 		String localName,
