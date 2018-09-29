@@ -1,5 +1,6 @@
 package com.mindasoft.spring._01_bean_factory;
 
+import com.mindasoft.spring.LearningBean;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
@@ -19,12 +20,13 @@ public class BeanFactoryStart {
 
     public static void main(String[] args) {
         // 1、指定 bean 定义的xml
-        Resource resouce = new ClassPathResource("");
+        Resource resouce = new ClassPathResource("beans.xml");
 
         // 2、加载和注册
         BeanFactory factory = new XmlBeanFactory(resouce);
         // 3、获取Bean时，实例化，注入、依赖
-        factory.getBean("test");
+        LearningBean bean = (LearningBean) factory.getBean("mybean");
+        System.out.println(bean.getName());
 
     }
 }

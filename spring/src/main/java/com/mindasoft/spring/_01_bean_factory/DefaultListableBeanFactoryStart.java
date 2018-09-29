@@ -1,5 +1,6 @@
 package com.mindasoft.spring._01_bean_factory;
 
+import com.mindasoft.spring.LearningBean;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.ClassPathResource;
@@ -45,14 +46,15 @@ public class DefaultListableBeanFactoryStart {
 
     public static void main(String[] args) {
         // 1、指定 bean 定义的xml Resource
-        Resource resouce = new ClassPathResource("xml file");
-
+        Resource resouce = new ClassPathResource("beans.xml");
+        //创建bean工厂
         DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
-
         XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
-        // 载入和注册
+        // 2、载入和注册
         reader.loadBeanDefinitions(resouce);
-
-        factory.getBean("");
+        System.out.println("一共加载了bean个数:"  + factory.getBeanDefinitionCount());
+        // 3、获取Bean时，实例化，注入、依赖
+        LearningBean bean = (LearningBean) factory.getBean("mybean");
+        System.out.println(bean.getName());
     }
 }
