@@ -23,7 +23,7 @@ public class BeanFactoryStart {
 
         // 2、加载和注册
         BeanFactory factory = new XmlBeanFactory(resouce);
-
+        // 3、获取Bean时，实例化，注入、依赖
         factory.getBean("test");
 
     }
