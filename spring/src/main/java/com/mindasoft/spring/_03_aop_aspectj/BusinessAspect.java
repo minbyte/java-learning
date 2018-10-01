@@ -15,12 +15,12 @@ public class BusinessAspect {
     //第一个* 说明方法的类型<br>
     // 第二个* 说明包下的所有的类  如果是包下类和自包中的类* com.cn..*.save*(..))<br>
     // (..)方法中的参数<br>
-    @Pointcut("execution(* com.mindasoft.spring._03_AOP.*.save*(..))")
+    @Pointcut("execution(* com.mindasoft.spring._03_aop_aspectj.*.save*(..))")
     private void anyMethod() {
 
     }
     // 定义一个切入点
-    @Pointcut("execution(* com.mindasoft.spring._03_AOP.*.update*(..))")
+    @Pointcut("execution(* com.mindasoft.spring._03_aop_aspectj.*.update*(..))")
     private void doMethod() {
 
     }
