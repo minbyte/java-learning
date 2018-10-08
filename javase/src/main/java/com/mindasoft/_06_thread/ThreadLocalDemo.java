@@ -27,12 +27,58 @@ import org.junit.Test;
  */
 public class ThreadLocalDemo {
 
-    private Integer i;
-    private ThreadLocal<Integer> threadLocal  = new ThreadLocal<Integer>();
+    ThreadLocal<Long> longLocal = new ThreadLocal<Long>();
+    ThreadLocal<String> stringLocal = new ThreadLocal<String>();
+
+
+    public void set() {
+        longLocal.set(Thread.currentThread().getId());
+        stringLocal.set(Thread.currentThread().getName());
+    }
+
+    public long getLong() {
+        return longLocal.get();
+    }
+
+    public String getString() {
+        return stringLocal.get();
+    }
 
     @Test
-    public void test(){
+    public void test() throws Exception {
+        final ThreadLocalDemo test = new ThreadLocalDemo();
 
+
+        test.set();
+        System.out.println(test.getLong());
+        System.out.println(test.getString());
+
+
+        Thread thread1 = new Thread(){
+            @Override
+            public void run() {
+                test.set();
+                System.out.println(test.getLong());
+                System.out.println(test.getString());
+
+                try {
+                    Thread.sleep(2000L);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println(test.getLong());
+                System.out.println(test.getString());
+            };
+        };
+        thread1.start();
+        Thread.sleep(1000L);
+
+
+        System.out.println(test.getLong());
+        System.out.println(test.getString());
+
+        Thread.sleep(2000L);
     }
 
 
