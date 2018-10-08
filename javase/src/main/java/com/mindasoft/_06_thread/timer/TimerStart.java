@@ -13,10 +13,13 @@ import java.util.TimerTask;
  *  public void schedule(TimerTask task, long delay);
  *  public void schedule(TimerTask task, Date time);
  *
+ *  推荐使用 ScheduledExecutorService 替换Timer
+ *
  */
 public class TimerStart {
 
     public static void main(String[] args) {
+
         Timer timer = new Timer();
 
         //延迟1000ms执行程序
