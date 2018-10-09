@@ -6,7 +6,7 @@ import org.junit.Test;
  * String StringBuffer StringBuilder
  * Created by huangmin on 2017/9/19 22:13.
  */
-public class _04_StringStart {
+public class _04_StringLearning {
 
     @Test
     public void string01(){
