@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd">
+
+    <description>rabbitmq 生产者连接服务配置</description>
+
+    <!-- 1、连接配置,和通道。通过指定下面的admin信息，当前producer中的exchange和queue会在rabbitmq服务器上自动生成 -->
+    <rabbit:connection-factory id="connectionFactory" host="10.200.12.50" username="test" password="test" port="5672" channel-cache-size="5"  />
+    <rabbit:admin connection-factory="connectionFactory" />
+    <!-- template用于在业务逻辑发送信息-->
+    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory" />
+
+
+    <!--定义direct-exchange -->
+    <rabbit:direct-exchange name="hello.direct.exchange" durable="true" auto-delete="false"></rabbit:direct-exchange>
+
+    <!--定义topic-exchange -->
+    <!--<rabbit:topic-exchange name="hello.topic.exchange" durable="true" auto-delete="false"></rabbit:topic-exchange>-->
+
+    <!-- 生产者 -->
+    <bean id="springConsumer" class="com.mindasoft.rabbitmq._02_spring.SpringProducer" autowire="byName"></bean>
+
+</beans>

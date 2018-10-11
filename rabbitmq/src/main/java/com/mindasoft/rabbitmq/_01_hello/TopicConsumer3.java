@@ -10,7 +10,7 @@ import java.util.concurrent.TimeoutException;
  * @date: 2018/10/10 10:26
  * @version: 1.0.0
  */
-public class Consumer {
+public class TopicConsumer3 {
 
     public static void main(String[] args) throws IOException, TimeoutException {
         //1、建立到代理服务器到连接
@@ -22,11 +22,11 @@ public class Consumer {
         //2、从连接获得信道
         final Channel channel = conn.createChannel();
         //3、声明交换器
-        String exchangeName = "hello.exchange";
-        channel.exchangeDeclare(exchangeName, "direct", true);
+        String exchangeName = "hello.topic.exchange";
+        channel.exchangeDeclare(exchangeName, "topic", true);
         //4、声明队列
         String queueName = channel.queueDeclare().getQueue();
-        String routingKey = "hello.routing.key";
+        String routingKey = "#.topic";
         //5、绑定队列，通过键 routingKey 将队列和交换器绑定起来
         channel.queueBind(queueName, exchangeName, routingKey);
 
@@ -42,12 +42,12 @@ public class Consumer {
                                            byte[] body) throws IOException {
                     String routingKey = envelope.getRoutingKey();
                     String contentType = properties.getContentType();
-                    System.out.println("消费的路由键：" + routingKey);
-                    System.out.println("消费的内容类型：" + contentType);
+                    System.out.println("TopicConsumer3消费的路由键：" + routingKey);
+                    System.out.println("TopicConsumer3消费的内容类型：" + contentType);
                     long deliveryTag = envelope.getDeliveryTag();
                     //确认消息
                     channel.basicAck(deliveryTag, false);
-                    System.out.println("消费的消息体内容：");
+                    System.out.println("TopicConsumer3消费的消息体内容：");
                     String bodyStr = new String(body, "UTF-8");
                     System.out.println(bodyStr);
 
