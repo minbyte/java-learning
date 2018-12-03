@@ -47,6 +47,13 @@ public class _03_WrapperDataType {
 	}
 
 	@Test
+	public void long02(){
+		Long l1 = 1L;
+		Long l2 = new Long(2L);
+
+	}
+
+	@Test
 	public void double02(){
 
 

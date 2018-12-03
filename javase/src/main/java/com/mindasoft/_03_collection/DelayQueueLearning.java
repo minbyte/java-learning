@@ -1,5 +1,6 @@
 package com.mindasoft._03_collection;
 
+import java.time.Instant;
 import java.util.concurrent.*;
 
 /**
@@ -20,6 +21,7 @@ public class DelayQueueLearning {
         queue.offer(m2);
         queue.offer(m1);
         // 启动消费线程 消费添加到延时队列中的消息，前提是任务到了延期时间
+        System.out.println( Instant.now());
         ExecutorService exec = Executors.newFixedThreadPool(1);
         exec.execute(new DelayConsumer(queue));
         exec.shutdown();
@@ -39,8 +41,14 @@ class DelayConsumer implements Runnable {
     public void run() {
         while (true) {
             try {
+                System.out.println("这里阻塞等待" + Instant.now());
                 DelayEvent take = queue.take();
-                System.out.println("消费消息id：" + take.getId() + " 消息体：" + take.getBody());
+                System.out.println("消费消息id：" + take.getId() + " 消息体：" + take.getBody() + Instant.now());
+                if(1 == take.getId()){
+                    DelayEvent m3 = new DelayEvent(3, "xixi", 1000);
+                    System.out.println(Instant.now());
+                    queue.offer(m3);
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
