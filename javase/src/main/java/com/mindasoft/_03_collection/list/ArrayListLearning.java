@@ -50,7 +50,6 @@ package com.mindasoft._03_collection.list;
 public class ArrayListLearning {
 
 
-
 	/** 以下是源码分析
 
 	 public class ArrayList<E> extends AbstractList<E>
