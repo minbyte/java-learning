@@ -41,7 +41,7 @@ class DelayConsumer implements Runnable {
     public void run() {
         while (true) {
             try {
-                System.out.println("这里阻塞等待" + Instant.now());
+                System.out.println("这里阻塞等待" + Instant.now() + ",数量" +queue.size());
                 DelayEvent take = queue.take();
                 System.out.println("消费消息id：" + take.getId() + " 消息体：" + take.getBody() + Instant.now());
                 if(1 == take.getId()){
