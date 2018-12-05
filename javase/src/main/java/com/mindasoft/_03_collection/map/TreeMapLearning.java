@@ -1,5 +1,7 @@
 package com.mindasoft._03_collection.map;
 
+import java.util.TreeMap;
+
 /**
  *
  *  TreeMap是基于红黑树实现的，这里只对红黑树做个简单的介绍，红黑树是一种特殊的二叉排序树，关于二叉排序树，参见：http://blog.csdn.net/ns_code/article/details/19823463，红黑树通过一些限制，使其不会出现二叉树排序树中极端的一边倒的情况，相对二叉排序树而言，这自然提高了查询的效率。
@@ -27,6 +29,12 @@ package com.mindasoft._03_collection.map;
  * DateTime: 2017/12/7 9:56
  */
 public class TreeMapLearning {
+
+    public static void main(String[] args) {
+
+        TreeMap map= new TreeMap();
+
+    }
 
 
     /**

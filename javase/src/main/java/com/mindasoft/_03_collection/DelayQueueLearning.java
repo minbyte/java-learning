@@ -24,6 +24,18 @@ public class DelayQueueLearning {
         System.out.println( Instant.now());
         ExecutorService exec = Executors.newFixedThreadPool(1);
         exec.execute(new DelayConsumer(queue));
+
+        DelayQueue<DelayEvent> queue2 = new DelayQueue<DelayEvent>();
+        DelayEvent m12 = new DelayEvent(12, "world", 3000);
+        // 添加延时消息,m2 延时10s
+        DelayEvent m22 = new DelayEvent(22, "hello", 10000);
+        //将延时消息放到延时队列中
+        queue2.offer(m22);
+        queue2.offer(m12);
+        // 启动消费线程 消费添加到延时队列中的消息，前提是任务到了延期时间
+        System.out.println("222===="+ Instant.now());
+        exec.execute(new DelayConsumer(queue2));
+
         exec.shutdown();
     }
 
@@ -40,15 +52,18 @@ class DelayConsumer implements Runnable {
     @Override
     public void run() {
         while (true) {
-            try {
-                System.out.println("这里阻塞等待" + Instant.now() + ",数量" +queue.size());
-                DelayEvent take = queue.take();
-                System.out.println("消费消息id：" + take.getId() + " 消息体：" + take.getBody() + Instant.now());
-                if(1 == take.getId()){
-                    DelayEvent m3 = new DelayEvent(3, "xixi", 1000);
-                    System.out.println(Instant.now());
-                    queue.offer(m3);
+//                System.out.println("queue.take()这里阻塞等待" + Instant.now() + ",数量" +queue.size());
+                DelayEvent take = queue.poll();
+                if(take != null){
+
+                    System.out.println("消费消息id：" + take.getId() + " 消息体：" + take.getBody() + Instant.now());
+                    if(1 == take.getId()){
+                        DelayEvent m3 = new DelayEvent(3, "xixi", 1000);
+                        queue.offer(m3);
+                    }
                 }
+            try {
+                Thread.sleep(5000L);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
