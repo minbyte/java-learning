@@ -18,11 +18,9 @@ package com.mindasoft._12_design_pattern._03_factory_method;
 public class FactoryMethod {
 
     public static void main(String[] args) {
-        CpuFactory cpuFactory = new AmdFactory();
-        Cpu cpu = cpuFactory.produce();
-
-        CpuFactory cpuFactory2 = new IntelFactory();
-        Cpu cpu2 = cpuFactory2.produce();
-
+        // 创建一个售货员
+        Salesman salesman = new Salesman();
+        // 客户告诉售货员要amd的产品,售货员去ADM工厂生产拿货给客户。
+        salesman.getCpu("amd").calculate();
     }
 }
