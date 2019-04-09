@@ -53,7 +53,7 @@ public class NIOClient {
 
     private void doWriter(SocketChannel socketChannel) throws Exception{
         buffer.clear();
-        buffer.put("Hi there Client!\r\n".getBytes());
+        buffer.put("Hi there AbstractFactory!\r\n".getBytes());
         buffer.flip();
         socketChannel.write(buffer);
     }
