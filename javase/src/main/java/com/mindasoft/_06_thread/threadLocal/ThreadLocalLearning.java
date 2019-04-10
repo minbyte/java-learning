@@ -1,9 +1,9 @@
-package com.mindasoft._06_thread;
+package com.mindasoft._06_thread.threadLocal;
 
 import org.junit.Test;
 
 /**
- * 早在JDK 1.2的版本中就提供java.lang.ThreadLocal，ThreadLocal为解决多线程程序的并发问题提供了一种新的思路。使用这个工具类可以很简洁地编写出优美的多线程程序。
+ *  早在JDK 1.2的版本中就提供java.lang.ThreadLocal，ThreadLocal为解决多线程程序的并发问题提供了一种新的思路。使用这个工具类可以很简洁地编写出优美的多线程程序。
 
  　　当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。
 
@@ -12,7 +12,6 @@ import org.junit.Test;
  　　所以，在Java中编写线程局部变量的代码相对来说要笨拙一些，因此造成线程局部变量没有在Java开发者中得到很好的普及。
 
      ThreadLocal的接口方法
-
      ThreadLocal类接口很简单，只有4个方法，我们先来了解一下：
 
      void set(Object value)设置当前线程的线程局部变量的值。
