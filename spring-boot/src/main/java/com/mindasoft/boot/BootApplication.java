@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 //@ImportResource({"classpath:xxx.xml",""})
-public class Application {
+public class BootApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(BootApplication.class, args);
 	}
 }
